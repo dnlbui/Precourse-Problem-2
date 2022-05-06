@@ -1,0 +1,64 @@
+//input an object and outputs hardest test for the students (lowest average test)
+function HardestTest (objectTest) {
+  //variable assigned to lowestAve
+  let lowestAve = 10000;
+  //testNumber = 0;
+  let testNumber = 0;
+  //lowAveCount = 0;
+  let lowAveCount = 0;
+  //lowestAveTestNum
+  let lowestAveTestNum = 0;
+
+  //iterate through object to get length of array inside property
+  for(key in objectTest){
+    //variable for arrayLength = object[key].length
+    var arrayLength = objectTest[key].length;
+  }
+
+  //iterate through array at same index
+  for(let i = 0; i < arrayLength; i++){
+    //increment testNumber (gives current test number)
+    testNumber++;
+    //variable for current index sum
+    let currentIndexSum = 0;
+    //iterate through object
+    for(key in objectTest){
+      //add to variable for current index sum
+      currentIndexSum += objectTest[key][i]; 
+    }
+    
+    //currentlowaverage = currentindexsum/arrayLength
+    let currentLowAve = currentIndexSum/arrayLength
+    
+    //if(currentlowaverage<lowestAverage)
+    if(currentLowAve < lowestAve){
+      //lowestAverage = currentlowaverage;
+      lowestAve = currentLowAve;
+      //lowAveCount = count
+      lowAveCount = testNumber;
+    }
+  }
+  
+  //print out hardest test
+  return 'The hardest test was number '+ lowAveCount;
+};
+
+let grades = {
+    Ron:    [90, 89, 99, 87, 100, 74],
+    Leslie: [78, 74, 92, 87, 77, 81],
+    Tom:    [77, 61, 89, 47, 57, 83],
+    Andy:   [35, 54, 44, 58, 39, 41]
+  }
+
+console.log(HardestTest(grades))
+  // Output: 'The hardest test was number 5'
+
+let grades2 = {
+  April:  [88, 56, 55, 97, 100, 88, 100, 98],
+  Tammy1: [78, 46, 92, 84, 55, 74, 89, 80],
+  Ben:    [77, 59, 89, 47, 57, 83, 90, 89],
+  Garry:  [54, 90, 84, 88, 39, 73, 67, 79],
+  Tammy2: [86, 49, 90, 77, 89, 92, 88, 75]
+};
+
+console.log(HardestTest(grades2)) // Output: 'The hardest test was test number 2'
