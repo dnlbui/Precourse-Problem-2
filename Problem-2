@@ -20,6 +20,8 @@ function HardestTest (objectTest) {
 
   //iterate through array at same index
   for(let i = 0; i < arrayLength; i++){
+    //total number of people to be used to find average
+    let totalPeople = 0;
     //increment testNumber (gives current test number)
     testNumber++;
     //variable for current index sum
@@ -27,11 +29,13 @@ function HardestTest (objectTest) {
     //iterate through object
     for(key in objectTest){
       //add to variable for current index sum
-      currentIndexSum += objectTest[key][i]; 
+      currentIndexSum += objectTest[key][i];
+      //increment to count total number of ppl
+      totalPeople++;
     }
     
-    //currentlowaverage = currentindexsum/arrayLength
-    let currentLowAve = currentIndexSum/arrayLength
+    //currentlowaverage = currentindexsum/totalPeople
+    let currentLowAve = currentIndexSum/totalPeople
     
     //if(currentlowaverage<lowestAverage)
     if(currentLowAve < lowestAve){
