@@ -10,10 +10,13 @@ function HardestTest (objectTest) {
   let lowestAveTestNum = 0;
 
   //iterate through object to get length of array inside property
-  for(key in objectTest){
-    //variable for arrayLength = object[key].length
-    var arrayLength = objectTest[key].length;
-  }
+  //for(key in objectTest){
+  //  //variable for arrayLength = object[key].length
+  //  var arrayLength = objectTest[key].length;
+  //}
+  
+  //shorter and efficient way to get length
+  let arrayLength = objectTest[Object.keys(objectTest)[0]].length;
 
   //iterate through array at same index
   for(let i = 0; i < arrayLength; i++){
